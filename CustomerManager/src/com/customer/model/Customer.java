@@ -8,7 +8,7 @@ public class Customer {
     public String gender;
     public int orderNum;
 
-    public Customer(String name, String address, String phone, String email, String gender, int orderNum) {
+    public Customer(String name, String address, String email, String phone, String gender, int orderNum) {
         this.name = name;
         this.address = address;
         this.phone = phone;

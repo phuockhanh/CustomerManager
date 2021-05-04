@@ -1,13 +1,8 @@
 package com.student.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Student {
     public String name;
     private String stCode;
-
     String date;
     public float point1;
     public float point2;
@@ -96,8 +91,9 @@ public class Student {
     public String toString(){
         return "Name: "+this.name+ ", Date: " + this.date+ ", StCode: "+this.stCode;
     }
-    public String toStringPoint(){
-        return "Name: "+this.name+ ", Date: " + this.date+ ", StCode: "+this.stCode+", Point1: "+this.point1 +", Point2: "
-                +this.point2 +", Point3: "+this.point3+ " ,Point4: "+this.point4+ " Medium Score: " + String.format("%.1f",getMediumScore()) +"\n";
+    public void displayFull(){
+        System.out.printf("|%15s|%10s|%17s|%9.1f|%9.1f|%9.1f|%9.1f|%9.1f|",this.name,this.stCode,this.date
+        ,this.point1,this.point2,this.point3,this.point4,getMediumScore());
+        System.out.println();
     }
 }

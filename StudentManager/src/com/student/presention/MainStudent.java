@@ -7,12 +7,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainStudent {
-    public static Scanner sc = new Scanner(System.in);
-    public static StudentManager std = new StudentManager();
-    public static void Menu(){
-        Scanner sc = new Scanner(System.in);
-    }
-
+    private static Scanner sc = new Scanner(System.in);
+    private static StudentManager std = new StudentManager();
     private static void display() {
         std.display();
     }
@@ -30,7 +26,7 @@ public class MainStudent {
             e.printStackTrace();
         }
     }
-    public static void createMenu(){
+    private static void createMenu(){
         System.out.println("==========MENU============");
         System.out.println("1. Xem danh sách học viên\n" +
                 "2. Thêm học viên\n" +
@@ -52,6 +48,7 @@ public class MainStudent {
             while (!sc.hasNextInt()){
                 sc.nextLine();
                 System.out.println("Please enter a valid number ");
+                createMenu();
             }
             int x = sc.nextInt();
             sc.nextLine();
@@ -88,7 +85,8 @@ public class MainStudent {
                     System.out.println("1. Nhập điểm học viên lần 1\n" +
                             "2. Nhập điểm học viên lần 2\n" +
                             "3. Nhập điểm học viên lần 3\n" +
-                            "4. Nhập điểm học viên lần 4");
+                            "4. Nhập điểm học viên lần 4\n"+
+                            "5. Trở lại\n");
                     int y = sc.nextInt();
                     sc.nextLine();
                     switch (y){
@@ -122,6 +120,9 @@ public class MainStudent {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+                            break;
+                        }
+                        case 5:{
                             break;
                         }
                     }

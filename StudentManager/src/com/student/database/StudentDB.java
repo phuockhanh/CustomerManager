@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class StudentDB {
-    Scanner sc = new Scanner(System.in);
-    public static int CAPACITY = 10;
+    private Scanner sc = new Scanner(System.in);
+    private static int CAPACITY = 10;
     int size=0;
     Student[] StArr = new Student[CAPACITY];
     public void saveFile() throws IOException {
@@ -80,7 +80,7 @@ public class StudentDB {
             return false;
         }
     }
-    public boolean isEmpty(){
+    private boolean isEmpty(){
         return (size==0);
     }
     public void remove(String stCode){
@@ -97,6 +97,13 @@ public class StudentDB {
                 size--;
             }
         }
+    }
+    public boolean checkFloat(Student st){
+        if(st.getPoint1()!=(float)st.getPoint1()){
+            System.out.println("Found");
+            return false;
+        }
+        return true;
     }
     public void editInfor(String StCode){
         for(int i=0;i<size;i++){
@@ -127,46 +134,94 @@ public class StudentDB {
     public void addPoint1All(){
         for(int i=0 ; i<size ; i++){
             System.out.println("Input point1 in "+StArr[i].getStCode());
+            while (!sc.hasNextFloat()){
+                sc.nextLine();
+                System.out.println("Please enter valid number");
+                System.out.println("Input point1 in "+StArr[i].getStCode());
+            }
             StArr[i].setPoint1(sc.nextFloat());
+            sc.nextLine();
         }
-        System.out.println("Input point1 for alll com.student.model.Student complete !!");
+        System.out.println("Input point1 for alll Student complete !!");
     }
 
     public void addPoint2All(){
         for(int i=0 ; i<size ; i++){
             System.out.println("Input point2 in "+StArr[i].getStCode());
+            while (!sc.hasNextFloat()){
+                sc.nextLine();
+                System.out.println("Please enter valid number");
+                System.out.println("Input point1 in "+StArr[i].getStCode());
+            }
             StArr[i].setPoint2(sc.nextFloat());
+            sc.nextLine();
         }
-        System.out.println("Input point1 for alll com.student.model.Student complete !!");
+        System.out.println("Input point2 for alll Student complete !!");
     }
 
     public void addPoint3All(){
         for(int i=0 ; i<size ; i++){
             System.out.println("Input point3 in "+StArr[i].getStCode());
+            while (!sc.hasNextFloat()){
+                sc.nextLine();
+                System.out.println("Please enter valid number");
+                System.out.println("Input point1 in "+StArr[i].getStCode());
+            }
             StArr[i].setPoint3(sc.nextFloat());
+            sc.nextLine();
         }
-        System.out.println("Input point1 for alll com.student.model.Student complete !!");
+        System.out.println("Input point3 for alll Student complete !!");
     }
 
     public void addPoint4All(){
         for(int i=0 ; i<size ; i++){
             System.out.println("Input point4 in "+StArr[i].getStCode());
+            while (!sc.hasNextFloat()){
+                sc.nextLine();
+                System.out.println("Please enter valid number");
+                System.out.println("Input point4 in "+StArr[i].getStCode());
+            }
             StArr[i].setPoint4(sc.nextFloat());
+            sc.nextLine();
         }
-        System.out.println("Input point4 for alll com.student.model.Student complete !!");
+        System.out.println("Input point4 for alll Student complete !!");
     }
     public void EditPoint(String StCode){
         for(int i=0;i<size;i++){
             if(StArr[i].getStCode().equals(StCode)){
-                System.out.println("Edit point from com.student.model.Student : "+StArr[i].getName());
+                System.out.println("Edit point from Student : "+StArr[i].getName());
                 System.out.println("Input Point1 to Edit");
+                while (!sc.hasNextFloat()){
+                    sc.nextLine();
+                    System.out.println("Please enter valid number");
+                    System.out.println("Input Point1 to Edit");
+                }
                 float point1 = sc.nextFloat();
+                sc.nextLine();
                 System.out.println("Input Point2 to Edit");
+                while (!sc.hasNextFloat()){
+                    sc.nextLine();
+                    System.out.println("Please enter valid number");
+                    System.out.println("Input Point2 to Edit");
+                }
                 float point2 = sc.nextFloat();
+                sc.nextLine();
                 System.out.println("Input Point3 to Edit");
+                while (!sc.hasNextFloat()){
+                    sc.nextLine();
+                    System.out.println("Please enter valid number");
+                    System.out.println("Input Point3 to Edit");
+                }
                 float point3 = sc.nextFloat();
+                sc.nextLine();
                 System.out.println("Input Point4 to Edit");
+                while (!sc.hasNextFloat()){
+                    sc.nextLine();
+                    System.out.println("Please enter valid number");
+                    System.out.println("Input Point4 to Edit");
+                }
                 float point4 = sc.nextFloat();
+                sc.nextLine();
                 StArr[i].setPoint1(point1);
                 StArr[i].setPoint2(point2);
                 StArr[i].setPoint3(point3);
@@ -189,18 +244,20 @@ public class StudentDB {
             }
         }
         for(int i=0;i<size;i++){
-            System.out.println(StArr[i].toStringPoint());
+            if(i==0){
+                System.out.println("________________________________________________________________________________________________");
+                System.out.printf("|     Name      |  StCode  |  Date of Birth  | Point1  | Point 2 | Point 3 | Point 4 | MdScore | \n");
+            }
+            StArr[i].displayFull();
+            if(i==size-1){
+                System.out.println("________________________________________________________________________________________________");
+            }
         }
     }
 
     public void display(){
         for(int i=0;i<size;i++){
             System.out.println(StArr[i].toString());
-        }
-    }
-    public void displayPoint(){
-        for(int i=0;i<size;i++){
-            System.out.println(StArr[i].toStringCsv());
         }
     }
 }

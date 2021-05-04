@@ -31,10 +31,6 @@ public class CustomerDT {
         fos.close();
     }
     public void readFile() throws IOException{
-        File fl = new File("customer.csv");
-        if(!fl.exists()){
-            fl.createNewFile();
-        }
         FileReader fr = null;
         BufferedReader bf = null;
         fr = new FileReader("customer.csv");

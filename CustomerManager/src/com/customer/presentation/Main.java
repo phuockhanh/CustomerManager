@@ -24,7 +24,7 @@ public class Main {
         int orderNumber = sc.nextInt();
         sc.nextLine();
         try {
-            cus.add(new Customer(name,address,phone,email,gender,orderNumber));
+            cus.add(new Customer(name,address,email,phone,gender,orderNumber));
         } catch (IOException e) {
             e.printStackTrace();
         }
