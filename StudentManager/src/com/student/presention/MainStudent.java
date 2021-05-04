@@ -30,7 +30,17 @@ public class MainStudent {
             e.printStackTrace();
         }
     }
-
+    public static void createMenu(){
+        System.out.println("==========MENU============");
+        System.out.println("1. Xem danh sách học viên\n" +
+                "2. Thêm học viên\n" +
+                "3. Sửa thông tin học viên\n" +
+                "4. Xoá học viên\n" +
+                "5. Nhập điểm học viên\n" +
+                "6. Sửa nhập điểm học viên\n" +
+                "7. Xếp loại học viên (hiển thị danh sách học viên theo điểm từ cao đến thấp)\n"+
+                "8. Exit");
+    }
     public static void main(String[] args) {
         try {
             std.loadFile();
@@ -38,15 +48,11 @@ public class MainStudent {
             e.printStackTrace();
         }
         while (true){
-            System.out.println("==========MENU============");
-            System.out.println("1. Xem danh sách học viên\n" +
-                    "2. Thêm học viên\n" +
-                    "3. Sửa thông tin học viên\n" +
-                    "4. Xoá học viên\n" +
-                    "5. Nhập điểm học viên\n" +
-                    "6. Sửa nhập điểm học viên\n" +
-                    "7. Xếp loại học viên (hiển thị danh sách học viên theo điểm từ cao đến thấp)\n"+
-                    "8. Exit");
+            createMenu();
+            while (!sc.hasNextInt()){
+                sc.nextLine();
+                System.out.println("Please enter a valid number ");
+            }
             int x = sc.nextInt();
             sc.nextLine();
             switch (x){
@@ -143,7 +149,9 @@ public class MainStudent {
                     System.exit(0);
                 }
                 default:{
-                    System.out.println("Found !! ");
+                    System.out.println("Wrong key, Press any key to continues ");
+                    sc.nextLine();
+                    createMenu();
                 }
             }
         }

@@ -98,7 +98,7 @@ public class StudentDB {
             }
         }
     }
-    public void EditInfor(String StCode){
+    public void editInfor(String StCode){
         for(int i=0;i<size;i++){
             if(StArr[i].getStCode().equals(StCode)){
                 System.out.println("Input Name to Edit: ");

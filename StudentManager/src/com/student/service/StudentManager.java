@@ -16,7 +16,7 @@ public class StudentManager {
         studentDB.saveFile();
     }
     public void editInfor(String stCode) throws IOException{
-        studentDB.EditInfor(stCode);
+        studentDB.editInfor(stCode);
         studentDB.saveFile();
     }
     public void editPoint(String stCode) throws IOException{
