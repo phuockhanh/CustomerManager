@@ -1,3 +1,5 @@
+package com.customer.model;
+
 public class Customer {
     public String name;
     public String address;
@@ -65,12 +67,10 @@ public class Customer {
     public String toString2(){
         return "Khach hang: "+this.name+", Dia chi: "+"<"+this.address+">" +", Email"
                 +"<"+this.email+">"+", Sdt: "+"<"+this.phone+">"+", Gioi tinh: "+"<"+
-                this.gender+">"+"\n";
+                this.gender+">" +" Order Number: "+this.orderNum+"\n";
     }
     @Override
     public String toString(){
-        return "Khach hang: "+this.name+", Dia chi: "+"<"+this.address+">" +", Email"
-                +"<"+this.email+">"+", Sdt: "+"<"+this.phone+">"+", Gioi tinh: "+"<"+
-                this.gender+">"+", So don da mua: "+"<"+this.orderNum+">"+"\n";
+        return this.name+","+this.address+","+this.email+","+this.phone+","+this.gender+","+this.orderNum+"\n";
     }
 }
